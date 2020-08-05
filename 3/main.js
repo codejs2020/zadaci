@@ -1,0 +1,3 @@
+function excerpt(text, length){
+
+}
