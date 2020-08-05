@@ -12,10 +12,10 @@ function htmlToCsv(html){
 
 }
 
-function csvToHtml(csvFile){
+function csvToHtml(csvString){
 
     let html = '<table>'
-    let csvArray = csvFile.split(',')
+    let csvArray = csvString.split(',')
     for(let el of csvArray){
         html+=`<td>${el}</td>`
     }
