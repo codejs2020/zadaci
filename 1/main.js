@@ -1,2 +1,2 @@
-// test
+
 // dodat drugi komentar
