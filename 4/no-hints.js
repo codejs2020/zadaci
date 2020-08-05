@@ -1,55 +1,42 @@
 // 1
-if (hidden) {
-  document.getElementById('second').className = 'show'
-} else {
-  document.getElementById('second').className = ''
-}
+ hidden ? document.getElementById('second').className = 'show' : document.getElementById('second').className = ''
 
 // 2
 const names = ['Petar', 'Ivan', 'Milica', 'Jovana']
-saveInDatabase(names[0])
-saveInDatabase(names[1])
-saveInDatabase(names[2])
-saveInDatabase(names[3])
+for(let i of names){
+  saveInDatabase(i)
+}
+
 
 // 3
 function isAdult (age) {
-  if (age && age > 17) {
-    return true
-  } else {
-    return false
-  }
+  return age > 17 ? true : false 
 }
 
 // 4
-const cookieExpiration = 10 * 1000 * 60 * 60 * 24
+const cookieExpiration = 864000000
 
 // 5
-if (i % 2 === 0) {
-  addColor('#ffffff') // white
-} else {
-  addColor('#111111') // black
-}
+i % 2 === 0 ? addColor('#ffffff') : addColor('#111111') // black
 
 // 6
-if (pass) {
-  html += 20 // WAT
-}
+if (pass) html += 20 // WAT
+
 
 // 7
+function setToLS(storage,data){
+  localStorage.setItem(storage,JSON.stringify(data))
+}
 if (localStorage.getItem('grades') === null) { // ne briši ako već postoji nešto
-  localStorage.setItem('grades', JSON.stringify(storageData.grades))
-  localStorage.setItem('students', JSON.stringify(storageData.students))
-  localStorage.setItem('subjects', JSON.stringify(storageData.subjects))
-  localStorage.setItem('teachers', JSON.stringify(storageData.teachers))
-  localStorage.setItem('parents', JSON.stringify(storageData.parents))
-  localStorage.setItem('users', JSON.stringify([...storageData.teachers, ...storageData.parents]))
-  localStorage.setItem('persons', JSON.stringify([...storageData.students, ...storageData.teachers]))
+  setToLS('grades', storageData.grades)
+  setToLS('students',storageData.students)
+  setToLS('subjects',storageData.subjects)
+  setToLS('teachers',storageData.teachers)
+  setToLS('parents',storageData.parents)
+  setToLS('users', [...storageData.teachers, ...storageData.parents])
+  setToLS('persons',[...storageData.students, ...storageData.teachers])
 }
 
 // 8
-let figure = {
-  color: color,
-  size: size,
-  shape: shape
-}
+let figure = {color , size , shape }
+  

@@ -1,77 +1,76 @@
 // duplicated code
 const level = document.getElementById('level').textContent
+speed = 15
 if (level === 9) {
-  speed = 15
+  
   a = 7
 }
 if (level === 3) {
-  speed = 15
   b = 9
 }
 
-// Rename variable - change all names
+// Rename letiable - change all names
 function randomBackground () {
-  const r = Math.floor(Math.random() * 256)
-  const g = Math.floor(Math.random() * 256)
-  const b = Math.floor(Math.random() * 256)
-  return 'rgb(' + r + ', ' + g + ', ' + b + ')'
+  const red = Math.floor(Math.random() * 256)
+  const green = Math.floor(Math.random() * 256)
+  const blue = Math.floor(Math.random() * 256)
+  return 'rgb(' + red + ', ' + green + ', ' + blue + ')'
 }
 
-// Rename variable - promenite imena "t" u "table", "c" u "cellContent", "td" u "tableCell", "rows" u "tableRows"
-function insertColumns (t, c) {
-  let rows = t.rows
+// Rename letiable - promenite imena "t" u "table", "c" u "cellContent", "td" u "tableCell", "rows" u "tableRows"
+function insertColumns (table, cellContent) {
+  let rows = table.rows
   for (let i = 0; i < rows.length; i++) {
-    let td = document.createElement('td')
-    td.textContent = c
-    rows[i].appendChild(td)
+    let tableCell = document.createElement('td')
+    td.textContent = cellContent
+    tableRows[i].appendChild(tableCell)
   }
 }
 
 // Rename method - promenite ime funkcije rp u randomBackground
-function rp () {
+function randomBackground () {
   let r = Math.floor(Math.random() * 256)
   let g = Math.floor(Math.random() * 256)
   let b = Math.floor(Math.random() * 256)
   return 'rgb(' + r + ', ' + g + ', ' + b + ')'
 }
 
-document.getElementById('rp').addEventListener('click', rp)
+document.getElementById('rp').addEventListener('click', randomBackground)
 
 // Extract method
+function getRandomColorletiable(){
+  return  Math.floor(Math.random() * 256)
+}
 function rp2 () {
-  let r = Math.floor(Math.random() * 256)
-  let g = Math.floor(Math.random() * 256)
-  let b = Math.floor(Math.random() * 256)
+  let r = getRandomColor()
+  let g = getRandomColor()
+  let b = getRandomColor()
   return 'rgb(' + r + ', ' + g + ', ' + b + ')'
 }
 
 // rename method - promenite ime funkcije "p" u "message"
 document.getElementById("p").innerHTML = "p";
-function p(msg) {
+function message(msg) {
   console.log(msg);
 }
-setTimeout(p, i);
+setTimeout(message, i);
 
 // Inline variable - napišite inline sve promenljive koje mogu da idu inline
-var xhr = new XMLHttpRequest(),
-  method = 'GET',
-  prefix = 'ajax/',
+let xhr = new XMLHttpRequest(),
   limit = 3,
   rand = Math.random(limit),
   rounded = Math.ceil(rand),
   extension = '.json';
-xhr.open(method, prefix + rounded + extension);
+xhr.open('GET', 'ajax/' + String(rounded) + '.json');
 xhr.onload = function () {
   if (xhr.status === 200) {
-    var data = JSON.parse(xhr.response);
-    for (var d in data) {
-      var dataItem = data[d];
-      var item = 'ime';
-      console.log(dataItem[item]);
+    let data = JSON.parse(xhr.response);
+    for (let d in data) {
+      let dataItem = data[d];
+      console.log(dataItem['ime']);
     }
   } else {
-    var errorPrefix = 'Errror: ';
-    console.log(errorPrefix + xhr.status);
+    console.log('Error:' + xhr.status);
   }
 };
 xhr.send();
@@ -79,25 +78,24 @@ xhr.send();
 
 // Inline method - napišite inline sve ovde kreirane funkcije
 document.body.innerHTML+="<table id='mojaTabela'><tr><td>nešto</td></tr></table>";
-var table=document.getElementById("mojaTabela");
+let table=document.getElementById("mojaTabela");
 function insertColumn(table, columnContent) {
-  var rows = table.rows;
-  for (var i = 0; i < rows.length; i++) {
-    var td = dc('td');
+  let rows = table.rows;
+  for (let i = 0; i < rows.length; i++) {
+    let td = dc('td');
     td.textContent = columnContent;
     ac(rows[i],td);
   }
 }
 
 function tableInsertColumn(t,c){
-  insertColumn(t, c);
+  let rows = t.rows;
+  for (let i = 0; i < rows.length; i++) {
+    let td = document.createElement('td');
+    td.textContent = columnContent;
+    element.appendChild(rows[i],td);
+  }
   console.log("table inserted");
 }
 
-function ac(element,contentToAppend){
-  element.appendChild(contentToAppend);
-}
-function dc(el){
-  return document.createElement(el);
-}
 tableInsertColumn(table,"text");
